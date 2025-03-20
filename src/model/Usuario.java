@@ -11,6 +11,18 @@ public class Usuario {
         this.tipoDeTarifa = tipoDeTarifa;
     }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public long getCpf() {
+        return cpf;
+    }
+
+    public String getTipoDeTarifa() {
+        return tipoDeTarifa;
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +

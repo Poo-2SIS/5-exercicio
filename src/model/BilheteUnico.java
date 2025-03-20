@@ -14,6 +14,10 @@ public class BilheteUnico {
         saldo = 0;
     }
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
     private int gerarNumero() {
         return new Random().nextInt(1000,10000);
     }
