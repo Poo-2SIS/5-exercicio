@@ -11,19 +11,7 @@ public class Main {
 
         imprimeVetor(v);
 
-        System.out.println();
-
-        Usuario usuario = new Usuario("Joao", 123, "Estudante");
-        BilheteUnico bilheteUnico = new BilheteUnico(usuario);
-
-        System.out.println(bilheteUnico);
-        bilheteUnico.carregar(5);
-        bilheteUnico.consultarSaldo();
-        System.out.println(bilheteUnico);
-        bilheteUnico.comprarPassagem();
-        System.out.println(bilheteUnico.consultarSaldo());
-        bilheteUnico.comprarPassagem();
-        System.out.println(bilheteUnico.consultarSaldo());
+        Utils.menuPrincipal();
 
     }
 
