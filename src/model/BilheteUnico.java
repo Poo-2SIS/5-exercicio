@@ -14,8 +14,16 @@ public class BilheteUnico {
         saldo = 0;
     }
 
+    public int getNumero() {
+        return numero;
+    }
+
     public Usuario getUsuario() {
         return usuario;
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 
     private int gerarNumero() {
@@ -52,8 +60,9 @@ public class BilheteUnico {
     public String toString() {
         return "BilheteUnico{" +
                 "numero=" + numero +
-                ", usuario=" + usuario +
                 ", saldo=" + saldo +
+                ", nome=" + usuario.nome +
+                ", Tipo de bulhete=" + usuario.tipoDeTarifa +
                 '}';
     }
 }
