@@ -8,7 +8,6 @@ public class Main {
         int[] v = new int[5];
 
         preencherVetor(v);
-
         imprimeVetor(v);
 
         Utils.menuPrincipal();
