@@ -28,10 +28,27 @@ public class Utils {
 
     }
 
-    private static int criaMenuComOpcoes(String mensagem) {
+    private static void menuAdmin() {
         int opcao;
-        opcao = Integer.parseInt(showInputDialog(mensagem));
-        return opcao;
+        String menu = "1. Emitir bilhete\n2. Listar bilhetes\n3. Remover um bilhete\n4. Sair";
+        do {
+            opcao = criaMenuComOpcoes(menu);
+            if (opcao < 1 || opcao > 4) {
+                showMessageDialog(null, "Opção inválida");
+            } else {
+                switch (opcao) {
+                    case 1:
+                        emitirBilhete();
+                        break;
+                    case 2:
+                        listarBilhete();
+                        break;
+                    case 3:
+                        removerBilhete();
+
+                }
+            }
+        } while (opcao != 4);
     }
 
     private static void menuUsuario() {
@@ -97,35 +114,15 @@ public class Utils {
         return null;
     }
 
-    private static void menuAdmin() {
-        int opcao;
-        String menu = "1. Emitir bilhete\n2. Listar bilhetes\n3. Remover um bilhete\n4. Sair";
-        do {
-            opcao = criaMenuComOpcoes(menu);
-            if (opcao < 1 || opcao > 4) {
-                showMessageDialog(null, "Opção inválida");
-            } else {
-                switch (opcao) {
-                    case 1:
-                        emitirBilhete();
-                        break;
-                    case 2:
-                        listarBilhete();
-                        break;
-                    case 3:
-                        removerBilhete();
-
-                }
-            }
-        } while (opcao != 4);
-    }
 
     private static void removerBilhete() {
-        int id = Integer.parseInt(showInputDialog("Digite o id do bilhete"));
+        int cpf = Integer.parseInt(showInputDialog("Digite o cpf do usuario"));
         boolean achou = false;
         for (int i = 0; i < contador; i++) {
-            if (id == bilhetes[i].getNumero()) {
-                achou = true;
+            if (cpf == bilhetes[i].getUsuario().getCpf()) {
+                int opcao = showConfirmDialog(null, "Realmente deseja remover?");
+                if (opcao == YES_OPTION) achou = true;
+                else break;
             }
             if (achou && i != bilhetes.length - 1) {
                 bilhetes[i] = bilhetes[i + 1];
@@ -158,4 +155,9 @@ public class Utils {
 
     }
 
+    private static int criaMenuComOpcoes(String mensagem) {
+        int opcao;
+        opcao = Integer.parseInt(showInputDialog(mensagem));
+        return opcao;
+    }
 }
